@@ -2,14 +2,14 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
-from django.contrib import admin
+
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('', include(('Authentication.urls', 'authentication'), namespace='authentication')),
-    # path('', include(('Dashboard.urls', 'dashboard'), namespace='dashboard')),
-    path('', views.home , name='index')
+    path('', views.home , name='index'),
+    path('register', views.registerUser, name="register"),
+    path('login',views.login_user,name="login"),
+    path('logout',views.logout_user,name="logout"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
